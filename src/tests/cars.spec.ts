@@ -149,6 +149,22 @@ describe('Testing carService.updateCar', () => {
   })
 })
 
+describe('Testing carService.updateCar', () => {
+  test(`Test ID 999 and expecting No record found.`, () => {
+    const id = 999
+    const input: carInput = {
+      model: 'Prius',
+      year: 2015,
+    }
+    const expected = 'No record found.'
+    expect(() => {
+      carService.updateCar(id, input)
+    }).toThrow(expected)
+  })
+})
+
+// cars api to patch a car record
+
 describe('Testing carService.patchCar', () => {
   test(`Should update the year to 2014 and value computed should change to 10314`, () => {
     //Arrange
@@ -165,6 +181,20 @@ describe('Testing carService.patchCar', () => {
   })
 })
 
+describe('Testing carService.updateCar', () => {
+  test(`Test ID 999 and expecting No record found.`, () => {
+    const id = 999
+    const model = 'Prius'
+    const year = 2014
+    const expected = 'No record found.'
+    expect(() => {
+      carService.patchCar(id, model, year)
+    }).toThrow(expected)
+  })
+})
+
+// cars api to delete a car record
+
 describe('Testing carService.deleteCar', () => {
   test(`Should delete the record with id 2`, () => {
     //Arrange
@@ -175,5 +205,15 @@ describe('Testing carService.deleteCar', () => {
 
     //Assert
     expect(actual).toEqual('Record ID 2 has been deleted successfully.')
+  })
+})
+
+describe('Testing carService.deleteCar', () => {
+  test(`Test ID 999 and expecting No record found.`, () => {
+    const id = 999
+    const expected = 'No record found.'
+    expect(() => {
+      carService.deleteCar(id)
+    }).toThrow(expected)
   })
 })
