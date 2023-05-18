@@ -2,7 +2,7 @@ export interface Car {
   id: number
   model: string
   year: number
-  value: string
+  value: number
 }
 
 export interface carInput {

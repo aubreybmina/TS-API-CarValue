@@ -6,7 +6,7 @@ import { TestCase, carInput } from '../types/Interface'
 describe('Testing carService.getAllCars()', () => {
   test('should return 1 record of car', () => {
     //Arrange
-    const expected = [{ id: 1, model: 'Civic', year: 2014, value: '$6,614.00' }]
+    const expected = [{ id: 1, model: 'Civic', year: 2014, value: 6614 }]
 
     //Act
     const actual = carService.getAllCars()
@@ -24,9 +24,9 @@ describe('Testing carService.addCar()', () => {
       id: 2,
       model: 'Civic',
       year: 2014,
-      value: '$6,614.00',
+      value: 6614,
     }
-    const expected = { id: 2, model: 'Civic', year: 2014, value: '$6,614.00' }
+    const expected = { id: 2, model: 'Civic', year: 2014, value: 6614 }
     const actual = carService.addCar(input)
     expect(actual).toEqual(expected)
   })
@@ -105,7 +105,7 @@ describe('Testing carService.addCar() to return an error', () => {
 // cars api to update a car record
 
 describe('Testing carService.updateCar', () => {
-  test(`Should update the model and year of car record with id 2 and value computed should change to $10,315.00 `, () => {
+  test(`Should update the model and year of car record with id 2 and value computed should change to 10315 `, () => {
     //Arrange
     const id = 2
     const input: carInput = {
@@ -119,12 +119,12 @@ describe('Testing carService.updateCar', () => {
     //Assert
     expect(actual.model).toBe('Prius')
     expect(actual.year).toBe(2015)
-    expect(actual.value).toBe('$10,315.00')
+    expect(actual.value).toBe(10315)
   })
 })
 
 describe('Testing carService.patchCar', () => {
-  test(`Should update the year to 2014 and value computed should change to $10,314.00`, () => {
+  test(`Should update the year to 2014 and value computed should change to 10314`, () => {
     //Arrange
     const id = 2
     const model = 'Prius'
@@ -135,7 +135,7 @@ describe('Testing carService.patchCar', () => {
 
     //Assert
     expect(actual.year).toBe(2014)
-    expect(actual.value).toBe('$10,314.00')
+    expect(actual.value).toBe(10314)
   })
 })
 
