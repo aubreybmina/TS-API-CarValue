@@ -1,5 +1,5 @@
 import * as carService from '../services/carService'
-import { TestCase, carInput } from '../types/Interface'
+import { TestModelYear, carInput } from '../types/Interface'
 
 // cars api to return default car record
 
@@ -34,7 +34,7 @@ describe('Testing carService.addCar()', () => {
 
 // cars api addCar function that returns an error
 
-const testCases: TestCase[] = [
+const testCases: TestModelYear[] = [
   {
     model: 'C1vic',
     year: 2014,
@@ -99,6 +99,32 @@ describe('Testing carService.addCar() to return an error', () => {
         carService.addCar(input)
       }).toThrow(expected)
     })
+  })
+})
+
+// cars api to get a car record by id
+
+describe('Testing carService.getOneCar', () => {
+  test(`Test ID 1 and expecting { id: 1, model: 'Civic', year: 2014, value: 6614 }`, () => {
+    //Arrange
+    const id = 1
+    const expected = { id: 1, model: 'Civic', year: 2014, value: 6614 }
+
+    //Act
+    const actual = carService.getOneCar(id)
+
+    //Assert
+    expect(actual).toEqual(expected)
+  })
+})
+
+describe('Testing carService.getOneCar', () => {
+  test(`Test ID 999 and expecting No record found.`, () => {
+    const id = 999
+    const expected = 'No record found.'
+    expect(() => {
+      carService.getOneCar(id)
+    }).toThrow(expected)
   })
 })
 

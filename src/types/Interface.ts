@@ -10,7 +10,7 @@ export interface carInput {
   year: number
 }
 
-export interface TestCase {
+export interface TestModelYear {
   model: any
   year: any
   expected: string
